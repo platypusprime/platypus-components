@@ -30,8 +30,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
-import com.sun.awt.AWTUtilities;
-
 /**
  * A component which allows a user to "snip" a rectangular region of their
  * display and retrieve its coordinates/dimensions.
@@ -89,7 +87,7 @@ public class PSnipper {
 
 				// make frame transparent
 				frame.setUndecorated(true);
-				AWTUtilities.setWindowOpaque(frame, false);
+				//AWTUtilities.setWindowOpaque(frame, false);
 				frame.setBackground(new Color(0, 0, 0, 0));
 
 				// create interface layer

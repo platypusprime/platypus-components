@@ -37,7 +37,7 @@ public class PDateChooser extends JPanel implements ActionListener,
 	static {
 		DATE_FORMAT.setLenient(false);
 	}
-	private static final String ICON_PATH = "/platypus/components/resources/calendar_20x20.png";
+	private static final String ICON_PATH = "/icon/calendar_20x20.png";
 	private static final Color BUTTON_IDLE_COLOR = UIManager.getColor("Label.background");
 	private static final Color BUTTON_OVER_COLOR = BUTTON_IDLE_COLOR.darker();
 	private static final Color BUTTON_DOWN_COLOR = BUTTON_OVER_COLOR.darker();
