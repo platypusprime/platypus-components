@@ -14,44 +14,43 @@ import javax.swing.table.TableCellEditor;
  *
  * @author Jingchen Xu
  */
-public class CustomTableStringEditor extends AbstractCellEditor implements
-		TableCellEditor {
+public class CustomTableStringEditor extends AbstractCellEditor implements TableCellEditor {
 
-	private static final long serialVersionUID = 1811970172124098261L;
+    private static final long serialVersionUID = 1811970172124098261L;
 
-	private JTextField field;
+    private JTextField field;
 
-	/**
-	 * Creates a string editor with centered 12pt sans-serif text.
-	 */
-	public CustomTableStringEditor() {
-		this(SwingConstants.CENTER, new Font("sanserif", Font.PLAIN, 12));
-	}
+    /**
+     * Creates a string editor with centered 12pt sans-serif text.
+     */
+    public CustomTableStringEditor() {
+        this(SwingConstants.CENTER, new Font("sanserif", Font.PLAIN, 12));
+    }
 
-	/**
-	 * Creates a string editor with specified alignment and font.
-	 * 
-	 * @param alignment horizontal alignment of editor text
-	 * @param font font to use for editor text
-	 */
-	public CustomTableStringEditor(int alignment, Font font) {
-		super();
-		field = new JTextField();
-		field.setHorizontalAlignment(alignment);
-		field.setFont(font);
-	}
+    /**
+     * Creates a string editor with specified alignment and font.
+     * 
+     * @param alignment horizontal alignment of editor text
+     * @param font font to use for editor text
+     */
+    public CustomTableStringEditor(int alignment, Font font) {
+        super();
+        field = new JTextField();
+        field.setHorizontalAlignment(alignment);
+        field.setFont(font);
+    }
 
-	@Override
-	public Component getTableCellEditorComponent(JTable table, Object value,
-			boolean isSelected,
-			int row, int column) {
-		field.setText((String) value);
-		return field;
-	}
+    @Override
+    public Component getTableCellEditorComponent(JTable table, Object value,
+            boolean isSelected, int row, int column) {
 
-	@Override
-	public Object getCellEditorValue() {
-		return field.getText();
-	}
+        field.setText((String) value);
+        return field;
+    }
+
+    @Override
+    public Object getCellEditorValue() {
+        return field.getText();
+    }
 
 }

@@ -260,6 +260,6 @@ public class PSnipper {
 			g2d.setStroke(dashed);
 			g2d.drawRect(0, 0, getWidth() - 3, getHeight() - 3);
 			g2d.dispose();
-		}
-	}
+        }
+    }
 }

@@ -15,70 +15,72 @@ import javax.swing.text.AttributeSet;
  */
 public class PRegexField extends JTextField {
 
-	private static final long serialVersionUID = 1L;
+    /** default serial version UID */
+    private static final long serialVersionUID = 1L;
 
-	public static final String NO_RESTRICTION = "";
-	public static final String DIGITS_ONLY = "[\\D]";
+    /** regex for no restriction on contents. */
+    public static final String NO_RESTRICTION = "";
 
-	protected String regex;
+    /** regex for numeric contents. */
+    public static final String DIGITS_ONLY = "[\\D]";
 
-	/**
-	 * Creates a text field with specified regular expression filter.
-	 * 
-	 * @param regex a regular expression specifying restricted inputs
-	 */
-	public PRegexField(String regex) {
-		super();
-		applyRegex(regex);
-	}
+    private String regex;
 
-	/**
-	 * Creates a text field with specified character length and regular
-	 * expression filter.
-	 * 
-	 * @param length length of text field
-	 * @param regex a regular expression specifying restricted inputs
-	 */
-	public PRegexField(int length, String regex) {
-		super(length);
-		applyRegex(regex);
-	}
+    /**
+     * Creates a text field with specified regular expression filter.
+     * 
+     * @param regex a regular expression specifying restricted inputs
+     */
+    public PRegexField(String regex) {
+        super();
+        applyRegex(regex);
+    }
 
-	/**
-	 * Creates a text field with initial content an regular expression filter.
-	 * The filter is not applied to the initial text.
-	 * 
-	 * @param text the initial content of the text field
-	 * @param regex a regular expression specifying restricted inputs
-	 */
-	public PRegexField(String text, String regex) {
-		super(text);
-		applyRegex(regex);
-	}
+    /**
+     * Creates a text field with specified character length and regular
+     * expression filter.
+     * 
+     * @param length length of text field
+     * @param regex a regular expression specifying restricted inputs
+     */
+    public PRegexField(int length, String regex) {
+        super(length);
+        applyRegex(regex);
+    }
 
-	private void applyRegex(String newregex) {
-		regex = newregex;
+    /**
+     * Creates a text field with initial content an regular expression filter.
+     * The filter is not applied to the initial text.
+     * 
+     * @param text the initial content of the text field
+     * @param regex a regular expression specifying restricted inputs
+     */
+    public PRegexField(String text, String regex) {
+        super(text);
+        applyRegex(regex);
+    }
 
-		if (regex.length() > 0) {
-			PlainDocument doc = new PlainDocument();
-			doc.setDocumentFilter(new DocumentFilter() {
+    private void applyRegex(String newregex) {
+        regex = newregex;
 
-				@Override
-				public void insertString(FilterBypass fb, int off, String str,
-						AttributeSet attr)
-						throws BadLocationException {
-					fb.insertString(off, str.replaceAll(regex, ""), attr);
-				}
+        if (regex.length() > 0) {
+            PlainDocument doc = new PlainDocument();
+            doc.setDocumentFilter(new DocumentFilter() {
 
-				@Override
-				public void replace(FilterBypass fb, int off, int len,
-						String str, AttributeSet attr)
-						throws BadLocationException {
-					fb.replace(off, len, str.replaceAll(regex, ""), attr);
-				}
-			});
+                @Override
+                public void insertString(FilterBypass fb, int off, String str, AttributeSet attr)
+                        throws BadLocationException {
+                    fb.insertString(off, str.replaceAll(regex, ""), attr);
+                }
 
-			this.setDocument(doc);
-		}
-	}
+                @Override
+                public void replace(FilterBypass fb, int off, int len, String str,
+                        AttributeSet attr) throws BadLocationException {
+                    fb.replace(off, len, str.replaceAll(regex, ""), attr);
+                }
+            });
+
+            this.setDocument(doc);
+        }
+    }
 }

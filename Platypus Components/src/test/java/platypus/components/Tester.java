@@ -2,21 +2,31 @@ package platypus.components;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import platypus.components.text.PDateChooser;
 
+/**
+ * Tests UI components under system look and feel.
+ * 
+ * @author Jingchen Xu
+ */
 public class Tester {
 
-	public static void main(String[] args) throws ClassNotFoundException, InstantiationException,
-			IllegalAccessException, UnsupportedLookAndFeelException {
-		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    /**
+     * The main method
+     * 
+     * @param args command-line arguments (unused)
+     * @throws Exception if an error occurs while setting look and feel
+     */
+    public static void main(String[] args) throws Exception {
 
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new PDateChooser());
-		frame.setVisible(true);
-		frame.pack();
-	}
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(new PDateChooser());
+        frame.setVisible(true);
+        frame.pack();
+    }
 
 }
