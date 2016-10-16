@@ -33,8 +33,7 @@ public class PComponentUtils {
      *            will trigger while this component is in focus.
      * @return the UndoManager that is added to doc
      */
-    public static UndoManager enableUndoManagement(Document doc,
-            JComponent component) {
+    public static UndoManager enableUndoManagement(Document doc, JComponent component) {
 
         final UndoManager manager = new UndoManager();
         doc.addUndoableEditListener(manager);

@@ -251,8 +251,7 @@ public class PColorButton extends JComponent {
      * @param mouseOverColor the button color if the cursor hovers over it
      * @param mouseDownColor the button color while it is being clicked
      */
-    public void setColors(Color idleColor, Color mouseOverColor,
-            Color mouseDownColor) {
+    public void setColors(Color idleColor, Color mouseOverColor, Color mouseDownColor) {
 
         if (idleColor == null)
             throw new NullPointerException("idleColor cannot be null");
